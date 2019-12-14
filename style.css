@@ -7,8 +7,8 @@
     color: azure !important;
 }
 
-#post-content-body {
-    color: azure;
+.text {
+    color: azure !important;;
 }
 
 .title {
@@ -19,18 +19,18 @@
     color: chocolate;
 }
 
-.layout__row_navbar {
+.navbar {
     background-color: #808080 !important;
 }
 
-.nav-links__item-link {
+.nav-links {
     color: azure !important;
 }
 
-.company-info__author {
+.company {
     background-color: #2c2b28 !important;
 }
 
-.comment__message {
+.comment {
     color: azure !important;
 }
