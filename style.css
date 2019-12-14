@@ -1,0 +1,36 @@
+.body {
+    background-color: #2c2b28;
+}
+
+.code {
+    background-color: #808080 !important;
+    color: azure !important;
+}
+
+#post-content-body {
+    color: azure;
+}
+
+.title {
+    color: azure !important;
+}
+
+.hljs-built_in {
+    color: chocolate;
+}
+
+.layout__row_navbar {
+    background-color: #808080 !important;
+}
+
+.nav-links__item-link {
+    color: azure !important;
+}
+
+.company-info__author {
+    background-color: #2c2b28 !important;
+}
+
+.comment__message {
+    color: azure !important;
+}

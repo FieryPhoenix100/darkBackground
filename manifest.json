@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "HabrFone",
+    "version": "1.0",
+    "content_scripts": [
+      {
+        "matches": ["https://habr.com/*"],
+        "css" : ["style.css"],
+        "js": [ "jquery.js", "content.js" ]
+      }
+    ],
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "permissions": [
+      "https://habr.com/*",
+      "storage"
+    ],
+  
+        "browser_action": {
+          "default_title": "HabrFone",
+          "default_popup": "popup.html"
+      }
+      
+  }
