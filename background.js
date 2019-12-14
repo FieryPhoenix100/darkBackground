@@ -5,6 +5,17 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       sendResponse({});
 });
 
-document.addEventListener('build', function (e) {
-  chrome.runtime.sendMessage({method: "changeStatus", status: localStorage.getItem('isEnabledExpansion')});
-}, false);
+chrome.extension.onMessage.addListener(function(request) {
+  if (request == "changeStatus") {
+      if (request.status == "true") {
+          var body = document.querySelector(".layout__row.layout__row_body")
+          body.classList.add("body")
+          var codeList = document.querySelectorAll("code")
+          codeList.forEach((elem) => { elem.classList.add("code") })
+          var sidebar = document.querySelector(".sidebar");
+          sidebar.remove();
+          var title = document.querySelector(".post__title-text");
+          title.classList.add("title");
+      }
+  }
+})

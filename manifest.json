@@ -14,7 +14,8 @@
     },
     "permissions": [
       "https://habr.com/*",
-      "storage"
+      "storage",
+      "tabs"
     ],
   
         "browser_action": {

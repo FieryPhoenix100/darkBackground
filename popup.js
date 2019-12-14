@@ -3,10 +3,6 @@ if (localStorage.getItem('isEnabledExpansion') == null)
     localStorage.setItem('isEnabledExpansion', false);
 }
 
-var event = document.createEvent('Event');
-
-event.initEvent('build', true, true);
-
 window.onload = function () {
     if (localStorage.getItem('isEnabledExpansion') == "true") {
         enableButton.innerHTML  = "Disenable dark background";
@@ -23,6 +19,10 @@ window.onload = function () {
             enableButton.innerHTML  = "Disenable dark background";
             localStorage.setItem('isEnabledExpansion', true);
         }
-        document.dispatchEvent(event);
+        chrome.tabs.query({}, tabs => {
+            tabs.forEach(tab => {
+            chrome.tabs.sendMessage(tab.id, {method: "changeStatus", status: localStorage.getItem('isEnabledExpansion')});
+          });
+        });
     }
 }
