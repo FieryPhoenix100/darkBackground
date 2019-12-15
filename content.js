@@ -4,10 +4,11 @@ var sidebar;
 var title;
 var navbar;
 var text;
-var nav_link;
+var nav_links;
 var company;
 var comment;
 var promo;
+var footer;
 
 window.onload = () => {
     body = document.querySelector(".layout__row.layout__row_body");
@@ -19,14 +20,14 @@ window.onload = () => {
     nav_links = document.querySelectorAll(".nav-links__item-link")
     company = document.querySelector(".company-info__author");
     comment = document.querySelectorAll(".comment__message");
-    promo = document.querySelectorAll(".layout__row_promo-blocks");
+    promo = document.querySelector(".layout__row_promo-blocks");
+    footer = document.querySelector(".layout__row_footer-links");
+    chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
+        if (response.status == "true") {
+            initStyle();
+        }
+      });
 }
-
-chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
-    if (response.status == "true") {
-        initStyle();
-    }
-  });
 
   chrome.runtime.onMessage.addListener(request => {
     if (request.method == "changeStatus") {
@@ -36,7 +37,9 @@ chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
         else {
             removeStyle(body, "body");
             removeStyleToList(codeList, "code");
-            sidebar.style.visibility = "visible";
+            if (sidebar != null) {
+                sidebar.style.visibility = "visible";
+            }
             removeStyle(title, "text");
             removeStyle(navbar, "navbar");
             removeStyle(text, "text");
@@ -44,21 +47,25 @@ chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
             removeStyle(company, "company");
             removeStyleToList(comment, "text");
             removeStyle(promo, "body");
+            removeStyle(footer, "body");
         }
     }
 });
 
 function initStyle() {
     addStyle(body, "body");
-    addStyleToList(codeList, "code")
-    sidebar.style.visibility = "hidden";
+    addStyleToList(codeList, "code");
+    if (sidebar != null) {
+        sidebar.style.visibility = "hidden";
+    }
     addStyle(title, "text");
     addStyle(navbar, "navbar");
     addStyle(text, "text");
     addStyleToList(nav_links, "text")
     addStyle(company, "company");
     addStyleToList(comment, "text")
-    addStyleToList(promo, "body")
+    addStyle(promo, "body")
+    addStyle(footer, "body");
 }
 
 function addStyle(element, style) {
