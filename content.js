@@ -9,6 +9,7 @@ var company;
 var comment;
 var promo;
 var footer;
+var post_textList;
 
 window.onload = () => {
     body = document.querySelector(".layout__row.layout__row_body");
@@ -22,6 +23,7 @@ window.onload = () => {
     comment = document.querySelectorAll(".comment__message");
     promo = document.querySelector(".layout__row_promo-blocks");
     footer = document.querySelector(".layout__row_footer-links");
+    post_textList = document.querySelectorAll(".post__text");
     chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
         if (response.status == "true") {
             initStyle();
@@ -48,6 +50,7 @@ window.onload = () => {
             removeStyleToList(comment, "text");
             removeStyle(promo, "body");
             removeStyle(footer, "body");
+            removeStyleToList(post_textList, "text")
         }
     }
 });
@@ -66,6 +69,7 @@ function initStyle() {
     addStyleToList(comment, "text")
     addStyle(promo, "body")
     addStyle(footer, "body");
+    addStyleToList(post_textList, "text");
 }
 
 function addStyle(element, style) {
