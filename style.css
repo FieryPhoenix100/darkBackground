@@ -8,29 +8,13 @@
 }
 
 .text {
-    color: azure !important;;
-}
-
-.title {
     color: azure !important;
-}
-
-.hljs-built_in {
-    color: chocolate;
 }
 
 .navbar {
     background-color: #808080 !important;
 }
 
-.nav-links {
-    color: azure !important;
-}
-
 .company {
     background-color: #2c2b28 !important;
-}
-
-.comment {
-    color: azure !important;
 }
