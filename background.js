@@ -19,3 +19,7 @@ chrome.extension.onMessage.addListener(function(request) {
       }
   }
 })
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  console.log("DOM fully loaded and parsed");
+});

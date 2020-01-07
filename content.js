@@ -10,6 +10,15 @@ var comment;
 var promo;
 var footer;
 var post_textList;
+var post__titleList;
+
+if (document.readyState == 'loading') {
+    // ещё загружается, ждём события
+    document.addEventListener("DOMContentLoaded", function(event) {
+        console.log("DOM fully loaded and parsed");
+      });    
+  }
+
 
 window.onload = () => {
     body = document.querySelector(".layout__row.layout__row_body");
@@ -23,7 +32,8 @@ window.onload = () => {
     comment = document.querySelectorAll(".comment__message");
     promo = document.querySelector(".layout__row_promo-blocks");
     footer = document.querySelector(".layout__row_footer-links");
-    post_textList = document.querySelectorAll(".post__text");
+    post_textList = document.querySelectorAll(".post__text");//https://habr.com/ru/
+    post__titleList = document.querySelectorAll(".post__title_link");//https://habr.com/ru/
     chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
         if (response.status == "true") {
             initStyle();
@@ -51,6 +61,7 @@ window.onload = () => {
             removeStyle(promo, "body");
             removeStyle(footer, "body");
             removeStyleToList(post_textList, "text")
+            removeStyleToList(post__titleList, "title");
         }
     }
 });
@@ -70,6 +81,7 @@ function initStyle() {
     addStyle(promo, "body")
     addStyle(footer, "body");
     addStyleToList(post_textList, "text");
+    addStyleToList(post__titleList, "title");
 }
 
 function addStyle(element, style) {
