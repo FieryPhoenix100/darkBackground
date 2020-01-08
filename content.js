@@ -12,14 +12,6 @@ var footer;
 var post_textList;
 var post__titleList;
 
-if (document.readyState == 'loading') {
-    // ещё загружается, ждём события
-    document.addEventListener("DOMContentLoaded", function(event) {
-        console.log("DOM fully loaded and parsed");
-      });    
-  }
-
-
 window.onload = () => {
     body = document.querySelector(".layout__row.layout__row_body");
     codeList = document.querySelectorAll("code");
