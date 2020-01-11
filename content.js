@@ -10,7 +10,9 @@ var comment;
 var promo;
 var footer;
 var post_textList;
-var post__titleList;
+var post_titleList;
+var login;
+var tegs;
 
 window.onload = () => {
     body = document.querySelector(".layout__row.layout__row_body");
@@ -25,7 +27,9 @@ window.onload = () => {
     promo = document.querySelector(".layout__row_promo-blocks");
     footer = document.querySelector(".layout__row_footer-links");
     post_textList = document.querySelectorAll(".post__text");//https://habr.com/ru/
-    post__titleList = document.querySelectorAll(".post__title_link");//https://habr.com/ru/
+    post_titleList = document.querySelectorAll(".post__title_link");//https://habr.com/ru/
+    login = document.querySelector("#login");
+    tegs = document.querySelectorAll(".inline-list__item-link");
     chrome.runtime.sendMessage({method: "getStatus"}, function(response) {
         if (response.status == "true") {
             initStyle();
@@ -53,7 +57,9 @@ window.onload = () => {
             removeStyle(promo, "body");
             removeStyle(footer, "body");
             removeStyleToList(post_textList, "text")
-            removeStyleToList(post__titleList, "title");
+            removeStyleToList(post_titleList, "title");
+            removeStyle(login, "text");
+            removeStyleToList(tegs, "tegs");
         }
     }
 });
@@ -73,7 +79,9 @@ function initStyle() {
     addStyle(promo, "body")
     addStyle(footer, "body");
     addStyleToList(post_textList, "text");
-    addStyleToList(post__titleList, "title");
+    addStyleToList(post_titleList, "title");
+    addStyle(login, "text");
+    addStyleToList(tegs, "tegs");
 }
 
 function addStyle(element, style) {
