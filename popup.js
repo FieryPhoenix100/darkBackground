@@ -26,7 +26,7 @@ window.onload = function () {
         });
     }
 
-    gradient(document.getElementById("gradient"), 20, 180);
+    gradient(document.getElementById("gradient"), 1000, 180);
 }
 
 var gradient = (canva, w, h) => {
@@ -34,7 +34,7 @@ var gradient = (canva, w, h) => {
 			 
     context = canva.getContext("2d");
 
-    gradient = context.createLinearGradient(w/2,h,w/2,0);
+    gradient = context.createLinearGradient(0,h,0,0);
 
     hue = [[255,0,0],[255,255,0],[0,255,0],[0,255,255],[0,0,255],[255,0,255],[255,0,0]];
 				   
